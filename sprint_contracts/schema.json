@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "required": ["sprint_id", "description", "allowed_paths", "gated_actions", "max_retries", "max_sprint_budget_usd", "phases"],
+  "properties": {
+    "sprint_id": {"type": "string", "pattern": "^[a-zA-Z0-9_-]+$", "minLength": 1},
+    "description": {"type": "string", "minLength": 1},
+    "allowed_paths": {"type": "array", "items": {"type": "string"}},
+    "gated_actions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["commit","push","merge","deploy","db_write","rm_recursive","cloud","paid_api","infra","credential_change"]
+      }
+    },
+    "max_retries": {"type": "integer", "minimum": 0, "maximum": 10},
+    "max_sprint_budget_usd": {"type": "number", "exclusiveMinimum": 0},
+    "phases": {"type": "object", "minProperties": 1}
+  }
+}

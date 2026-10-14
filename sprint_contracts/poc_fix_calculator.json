@@ -1,0 +1,19 @@
+{
+  "sprint_id": "poc-001",
+  "description": "Fix the addition bug in calculator.py",
+  "allowed_paths": ["src/calculator.py"],
+  "gated_actions": [],
+  "max_retries": 2,
+  "max_sprint_budget_usd": 3.00,
+  "phases": {
+    "implement": {
+      "allowed_tools": ["Edit", "Read", "Bash(pytest *)"],
+      "permission_mode": "dontAsk",
+      "budget_usd": 1.50,
+      "timeout_s": 120,
+      "model": "claude-haiku-4-5-20251001",
+      "effort": "medium",
+      "append_system_prompt": "Fix only the file listed in allowed_paths. Do not commit, push, or modify any other file."
+    }
+  }
+}

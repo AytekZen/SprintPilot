@@ -1,0 +1,111 @@
+# ──────────────────────────────────────────────
+# SprintPilot .gitignore
+# ──────────────────────────────────────────────
+
+# ── Credentials and secrets ──────────────────
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+secrets.json
+credentials.json
+.secrets/
+
+# ── Claude Code local state ──────────────────
+# Claude Code session data — local-only, not for version control
+.claude/
+# If you want to track project-level CLAUDE.md settings,
+# commit CLAUDE.md explicitly and keep .claude/ excluded.
+
+# ── SprintPilot runtime state ─────────────────
+# Evidence directories contain execution outputs, prompts, and responses
+evidence/
+# Temporary isolated worktrees created during sprint execution
+worktree_*/
+# Sprint state that is only valid for a running instance
+sprint_state.json
+
+# ── Python ────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+
+# ── pytest / test artifacts ───────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+coverage.xml
+nosetests.xml
+test-results/
+
+# ── Virtual environments ──────────────────────
+venv/
+.venv/
+env/
+ENV/
+.env.bak
+
+# ── Build and distribution ────────────────────
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+MANIFEST
+wheels/
+
+# ── Logs ─────────────────────────────────────
+*.log
+*.log.*
+logs/
+
+# ── Temporary files ───────────────────────────
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# ── macOS ─────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+
+# ── IDEs ──────────────────────────────────────
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.ropeproject/
+
+# ── Type-checker caches ───────────────────────
+.mypy_cache/
+.pytype/
+.pyre/
+.ruff_cache/
+
+# ── Sprint reports ────────────────────────────
+# Internal sprint reports may contain local paths; exclude from initial commit.
+# Track them explicitly when ready (git add SPRINTPILOT_SPRINT_*.md).
+SPRINTPILOT_SPRINT_*.md
+
+# ──────────────────────────────────────────────
+# FILES SAFE TO TRACK (not excluded by this file):
+#   sprintpilot/*.py        — source modules
+#   tests/*.py              — test suite
+#   sprint_contracts/*.json — sprint contracts
+#   pyproject.toml          — project metadata
+#   .python-version         — Python version pin
+#   CLAUDE.md               — project instructions for Claude sessions
+#   README.md               — public documentation
+# ──────────────────────────────────────────────
